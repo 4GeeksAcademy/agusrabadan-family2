@@ -50,9 +50,9 @@ def handle_members(id):
         response_body ["message"] = "Usuario encontrado"
         response_body ["results"] = result
         return response_body, 200
-    if request.method == "DELETE":
-        result = jackson_family.delete_member(id)
-        response_body["message"] = 
+   ## if request.method == "DELETE":
+   ##     result = jackson_family.delete_member(id)
+   ##     response_body["message"] = 
 
 
     
