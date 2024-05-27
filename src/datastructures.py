@@ -1,5 +1,5 @@
 """
-Update this file to implement the following already declared methods:
+update this file to implement the following already declared methods:
 - add_member: Should add a member to the self._members list
 - delete_member: Should delete a member from the self._members list
 - update_member: Should update a member from the self._members list
@@ -7,28 +7,21 @@ Update this file to implement the following already declared methods:
 """
 from random import randint
 
-
 class FamilyStructure:
     def __init__(self, last_name):
         self.last_name = last_name
-        self._members = [{'id': 10,
-                          'first_name': 'John',
-                          'last_name': self.last_name,
-                          'age': 33,
-                          'lucky_numbers': [7, 13, 22]},
-                         {'id': self._generate_id(),
-                          'first_name': 'Jane',
-                          'last_name': self.last_name,
-                          'age': 35,
-                          'lucky_numbers': [10, 14, 3]},
-                         {'id': self._generate_id(),
-                          'first_name': 'Jimmy',
-                          'last_name': self.last_name,
-                          'age': 5,
-                          'lucky_numbers': [1]}] # Example list of members
 
+        # example list of members
+        self._members = [
+            {"id": 1,
+            "first_name": "Agus",
+            "last_name": "Rabadan",
+            "age": 39,
+            "lucky_numbers": 4},
+            ]
+
+    # read-only: Use this method to generate random members ID's when adding members into the list
     def _generate_id(self):
-        # Read-only: Use this method to generate random members ID's when adding members into the list
         return randint(0, 99999999)
 
     def add_member(self, member):
@@ -40,19 +33,33 @@ class FamilyStructure:
         
 
     def delete_member(self, id):
-        # Fill this method and update the return
-       
-        pass
+        # Find the member with the given ID
+        member_to_delete = None
+        for member in self._members:
+            if member['id'] == id:
+                member_to_delete = member
+                break
+
+        # If the member was found, remove it from the list
+        if member_to_delete:
+            self._members.remove(member_to_delete)
+            return self._members  # Return the updated list of members
+        else:
+            return None  # Member not found
+            
+
+    def get_members(self):
+        return self._members
+        
 
     def get_member(self, id):
         # Fill this method and update the return
-        #Opcion uno, array con for
         for row in self._members:
             print(row)
             if row['id'] == id:
                 return row
         
 
+    # This method is done, it returns a list with all the family members
     def get_all_members(self):
-        # This method is done, it returns a list with all the family members
         return self._members
