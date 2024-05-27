@@ -12,6 +12,7 @@ class APIException(Exception):
             self.status_code = status_code
         self.payload = payload
 
+
     def to_dict(self):
         rv = dict(self.payload or ())
         rv['message'] = self.message
@@ -38,4 +39,4 @@ def generate_sitemap(app):
         <h1>Welcome to the Back-End!!</h1>
         <img style="width: 230px; border-radius: 100px" src='https://i.pinimg.com/originals/d2/f7/ec/d2f7ec90a1f859a5dab2426815888d6d.jpg' />
         <h1>My First Api!!</h1>
-        This is your api home, remember to specify a real endpoint path like: <ul style="text-align: left;">""" + links_html + "</ul></div>"
+        This is your api home, remember to specify a real endpoint path like: <ul style="text-align: center;">""" + links_html + "</ul></div>"
